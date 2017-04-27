@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://refuseOrderForVender.bcs.service.version1_0.webservice.model.ltips.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="RefuseOrderForVenderServiceImpl_1_0Service" targetNamespace="http://refuseOrderForVender.bcs.service.version1_0.webservice.model.ltips.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://refuseOrderForVender.bcs.service.version1_0.webservice.model.ltips.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="refuseOrderForVender" type="tns:refuseOrderForVender" />
+      <xs:element name="refuseOrderForVenderReply" type="tns:refuseOrderForVenderReply" />
+      <xs:element name="refuseOrderForVenderResponse" type="tns:refuseOrderForVenderResponse" />
+      <xs:complexType name="refuseOrderForVender">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="request" type="tns:refuseOrderForVenderRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="refuseOrderForVenderRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:abstractLiantuoRequest">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="officeNo" type="xs:string" />
+              <xs:element minOccurs="0" name="orderNo" type="xs:string" />
+              <xs:element minOccurs="0" name="param1" type="xs:string" />
+              <xs:element minOccurs="0" name="param2" type="xs:string" />
+              <xs:element minOccurs="0" name="param3" type="xs:string" />
+              <xs:element minOccurs="0" name="param4" type="xs:string" />
+              <xs:element minOccurs="0" name="refuseCause" type="xs:string" />
+              <xs:element minOccurs="0" name="refuseCode" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="abstractLiantuoRequest" abstract="true">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="agencyCode" type="xs:string" />
+          <xs:element minOccurs="0" name="sign" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="refuseOrderForVenderResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:refuseOrderForVenderReply" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="refuseOrderForVenderReply">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:abstractLiantuoReply">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="orderNo" type="xs:string" />
+              <xs:element minOccurs="0" name="param1" type="xs:string" />
+              <xs:element minOccurs="0" name="param2" type="xs:string" />
+              <xs:element minOccurs="0" name="param3" type="xs:string" />
+              <xs:element minOccurs="0" name="param4" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="abstractLiantuoReply" abstract="true">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="returnCode" type="xs:string" />
+          <xs:element minOccurs="0" name="returnMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="returnStackTrace" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="refuseOrderForVender">
+    <wsdl:part name="parameters" element="tns:refuseOrderForVender" />
+  </wsdl:message>
+  <wsdl:message name="refuseOrderForVenderResponse">
+    <wsdl:part name="parameters" element="tns:refuseOrderForVenderResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RefuseOrderForVenderService_1_0">
+    <wsdl:operation name="refuseOrderForVender">
+      <wsdl:input name="refuseOrderForVender" message="tns:refuseOrderForVender" />
+      <wsdl:output name="refuseOrderForVenderResponse" message="tns:refuseOrderForVenderResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RefuseOrderForVenderServiceImpl_1_0ServiceSoapBinding" type="tns:RefuseOrderForVenderService_1_0">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="refuseOrderForVender">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="refuseOrderForVender">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="refuseOrderForVenderResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RefuseOrderForVenderServiceImpl_1_0Service">
+    <wsdl:port name="RefuseOrderForVenderServiceImpl_1_0Port" binding="tns:RefuseOrderForVenderServiceImpl_1_0ServiceSoapBinding">
+      <soap:address location="http://wstest.51book.com:55779/ltips/services/refuseOrderForVenderService1.0" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

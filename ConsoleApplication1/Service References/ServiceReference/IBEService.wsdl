@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.goldinfo.yeexing.com" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="IBEService" targetNamespace="http://service.goldinfo.yeexing.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.goldinfo.yeexing.com">
+      <xsd:element name="IOException" type="tns:IOException" />
+      <xsd:complexType name="IOException">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:element name="MalformedURLException" type="tns:MalformedURLException" />
+      <xsd:complexType name="MalformedURLException">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:element name="DocumentException" type="tns:DocumentException" />
+      <xsd:complexType name="DocumentException">
+        <xsd:sequence>
+          <xsd:element name="message" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RefuseOutTicket" type="tns:RefuseOutTicket" />
+      <xsd:complexType name="RefuseOutTicket">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="userName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orderId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ordDetid" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ordDetname" type="xsd:string" />
+          <xsd:element minOccurs="0" name="refuseMemo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sign" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RefuseOutTicketResponse" type="tns:RefuseOutTicketResponse" />
+      <xsd:complexType name="RefuseOutTicketResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RefundTicket" type="tns:RefundTicket" />
+      <xsd:complexType name="RefundTicket">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="userName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orderId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="returnDetail" type="xsd:string" />
+          <xsd:element minOccurs="0" name="refundType" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sign" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RefundTicketResponse" type="tns:RefundTicketResponse" />
+      <xsd:complexType name="RefundTicketResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="QueryRefundHisDetailInfo" type="tns:QueryRefundHisDetailInfo" />
+      <xsd:complexType name="QueryRefundHisDetailInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="userName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orderId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ordAirID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sign" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="QueryRefundHisDetailInfoResponse" type="tns:QueryRefundHisDetailInfoResponse" />
+      <xsd:complexType name="QueryRefundHisDetailInfoResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="QueryRequireOrder" type="tns:QueryRequireOrder" />
+      <xsd:complexType name="QueryRequireOrder">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="userName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orderId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="pnr" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ordState" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sign" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="QueryRequireOrderResponse" type="tns:QueryRequireOrderResponse" />
+      <xsd:complexType name="QueryRequireOrderResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RefundAccount" type="tns:RefundAccount" />
+      <xsd:complexType name="RefundAccount">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="orderid" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RefundAccountResponse" type="tns:RefundAccountResponse" />
+      <xsd:complexType name="RefundAccountResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="QueryOrderInfo" type="tns:QueryOrderInfo" />
+      <xsd:complexType name="QueryOrderInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="userName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orderId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="pnr" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ordAirID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ordDetname" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ordAirComp" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ordhomeport" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orddestport" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ordState" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ordType" type="xsd:string" />
+          <xsd:element minOccurs="0" name="startdate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="enddate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="page" type="xsd:string" />
+          <xsd:element minOccurs="0" name="count" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sign" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="QueryOrderInfoResponse" type="tns:QueryOrderInfoResponse" />
+      <xsd:complexType name="QueryOrderInfoResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="OutTickets" type="tns:OutTickets" />
+      <xsd:complexType name="OutTickets">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="userName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orderId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orddetid" type="xsd:string" />
+          <xsd:element minOccurs="0" name="OrdDetname" type="xsd:string" />
+          <xsd:element minOccurs="0" name="OrdAirID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Newpnr" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sign" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="OutTicketsResponse" type="tns:OutTicketsResponse" />
+      <xsd:complexType name="OutTicketsResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="QueryRequireRefundOrder" type="tns:QueryRequireRefundOrder" />
+      <xsd:complexType name="QueryRequireRefundOrder">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="userName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="refundType" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isWaitAuditQuery" type="xsd:string" />
+          <xsd:element minOccurs="0" name="aircomp" type="xsd:string" />
+          <xsd:element minOccurs="0" name="passengerName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orderId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ordAirID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="pnr" type="xsd:string" />
+          <xsd:element minOccurs="0" name="enddate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orderParam" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orderMode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sign" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="QueryRequireRefundOrderResponse" type="tns:QueryRequireRefundOrderResponse" />
+      <xsd:complexType name="QueryRequireRefundOrderResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ModifyRefuseTicketState" type="tns:ModifyRefuseTicketState" />
+      <xsd:complexType name="ModifyRefuseTicketState">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="userName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orderId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="goldid" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sign" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ModifyRefuseTicketStateResponse" type="tns:ModifyRefuseTicketStateResponse" />
+      <xsd:complexType name="ModifyRefuseTicketStateResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RefuseRefundTicket" type="tns:RefuseRefundTicket" />
+      <xsd:complexType name="RefuseRefundTicket">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="userName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orderId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="refusememo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sign" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RefuseRefundTicketResponse" type="tns:RefuseRefundTicketResponse" />
+      <xsd:complexType name="RefuseRefundTicketResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="SplitAccount" type="tns:SplitAccount" />
+      <xsd:complexType name="SplitAccount">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="userName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orderId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="goldid" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sign" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="SplitAccountResponse" type="tns:SplitAccountResponse" />
+      <xsd:complexType name="SplitAccountResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ModifyOutTicketState" type="tns:ModifyOutTicketState" />
+      <xsd:complexType name="ModifyOutTicketState">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="userName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orderId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orddetid" type="xsd:string" />
+          <xsd:element minOccurs="0" name="OrdDetname" type="xsd:string" />
+          <xsd:element minOccurs="0" name="OrdAirID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Newpnr" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sign" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ModifyOutTicketStateResponse" type="tns:ModifyOutTicketStateResponse" />
+      <xsd:complexType name="ModifyOutTicketStateResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="QueryRefundHisOrderInfo" type="tns:QueryRefundHisOrderInfo" />
+      <xsd:complexType name="QueryRefundHisOrderInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="userName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="passengerName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="startdate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="enddate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ordAirID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="page" type="xsd:string" />
+          <xsd:element minOccurs="0" name="count" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sign" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="QueryRefundHisOrderInfoResponse" type="tns:QueryRefundHisOrderInfoResponse" />
+      <xsd:complexType name="QueryRefundHisOrderInfoResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="OutTicketsResponse">
+    <wsdl:part name="parameters" element="tns:OutTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyOutTicketState">
+    <wsdl:part name="parameters" element="tns:ModifyOutTicketState" />
+  </wsdl:message>
+  <wsdl:message name="QueryRequireRefundOrderResponse">
+    <wsdl:part name="parameters" element="tns:QueryRequireRefundOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyRefuseTicketState">
+    <wsdl:part name="parameters" element="tns:ModifyRefuseTicketState" />
+  </wsdl:message>
+  <wsdl:message name="IOException">
+    <wsdl:part name="IOException" element="tns:IOException" />
+  </wsdl:message>
+  <wsdl:message name="QueryOrderInfoResponse">
+    <wsdl:part name="parameters" element="tns:QueryOrderInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryRefundHisOrderInfoResponse">
+    <wsdl:part name="parameters" element="tns:QueryRefundHisOrderInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RefundAccount">
+    <wsdl:part name="parameters" element="tns:RefundAccount" />
+  </wsdl:message>
+  <wsdl:message name="QueryRequireOrder">
+    <wsdl:part name="parameters" element="tns:QueryRequireOrder" />
+  </wsdl:message>
+  <wsdl:message name="RefuseRefundTicket">
+    <wsdl:part name="parameters" element="tns:RefuseRefundTicket" />
+  </wsdl:message>
+  <wsdl:message name="OutTickets">
+    <wsdl:part name="parameters" element="tns:OutTickets" />
+  </wsdl:message>
+  <wsdl:message name="ModifyRefuseTicketStateResponse">
+    <wsdl:part name="parameters" element="tns:ModifyRefuseTicketStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="RefundTicketResponse">
+    <wsdl:part name="parameters" element="tns:RefundTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="RefuseOutTicket">
+    <wsdl:part name="parameters" element="tns:RefuseOutTicket" />
+  </wsdl:message>
+  <wsdl:message name="QueryRequireOrderResponse">
+    <wsdl:part name="parameters" element="tns:QueryRequireOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryRefundHisDetailInfo">
+    <wsdl:part name="parameters" element="tns:QueryRefundHisDetailInfo" />
+  </wsdl:message>
+  <wsdl:message name="RefundAccountResponse">
+    <wsdl:part name="parameters" element="tns:RefundAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyOutTicketStateResponse">
+    <wsdl:part name="parameters" element="tns:ModifyOutTicketStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SplitAccount">
+    <wsdl:part name="parameters" element="tns:SplitAccount" />
+  </wsdl:message>
+  <wsdl:message name="QueryRefundHisOrderInfo">
+    <wsdl:part name="parameters" element="tns:QueryRefundHisOrderInfo" />
+  </wsdl:message>
+  <wsdl:message name="MalformedURLException">
+    <wsdl:part name="MalformedURLException" element="tns:MalformedURLException" />
+  </wsdl:message>
+  <wsdl:message name="QueryRequireRefundOrder">
+    <wsdl:part name="parameters" element="tns:QueryRequireRefundOrder" />
+  </wsdl:message>
+  <wsdl:message name="RefuseOutTicketResponse">
+    <wsdl:part name="parameters" element="tns:RefuseOutTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryOrderInfo">
+    <wsdl:part name="parameters" element="tns:QueryOrderInfo" />
+  </wsdl:message>
+  <wsdl:message name="DocumentException">
+    <wsdl:part name="DocumentException" element="tns:DocumentException" />
+  </wsdl:message>
+  <wsdl:message name="SplitAccountResponse">
+    <wsdl:part name="parameters" element="tns:SplitAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryRefundHisDetailInfoResponse">
+    <wsdl:part name="parameters" element="tns:QueryRefundHisDetailInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RefuseRefundTicketResponse">
+    <wsdl:part name="parameters" element="tns:RefuseRefundTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="RefundTicket">
+    <wsdl:part name="parameters" element="tns:RefundTicket" />
+  </wsdl:message>
+  <wsdl:portType name="IBEServicePortType">
+    <wsdl:operation name="RefuseOutTicket">
+      <wsdl:input name="RefuseOutTicket" message="tns:RefuseOutTicket" />
+      <wsdl:output name="RefuseOutTicketResponse" message="tns:RefuseOutTicketResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RefundTicket">
+      <wsdl:input name="RefundTicket" message="tns:RefundTicket" />
+      <wsdl:output name="RefundTicketResponse" message="tns:RefundTicketResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryRefundHisDetailInfo">
+      <wsdl:input name="QueryRefundHisDetailInfo" message="tns:QueryRefundHisDetailInfo" />
+      <wsdl:output name="QueryRefundHisDetailInfoResponse" message="tns:QueryRefundHisDetailInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryRequireOrder">
+      <wsdl:input name="QueryRequireOrder" message="tns:QueryRequireOrder" />
+      <wsdl:output name="QueryRequireOrderResponse" message="tns:QueryRequireOrderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RefundAccount">
+      <wsdl:input name="RefundAccount" message="tns:RefundAccount" />
+      <wsdl:output name="RefundAccountResponse" message="tns:RefundAccountResponse" />
+      <wsdl:fault name="MalformedURLException" message="tns:MalformedURLException" />
+      <wsdl:fault name="IOException" message="tns:IOException" />
+      <wsdl:fault name="DocumentException" message="tns:DocumentException" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryOrderInfo">
+      <wsdl:input name="QueryOrderInfo" message="tns:QueryOrderInfo" />
+      <wsdl:output name="QueryOrderInfoResponse" message="tns:QueryOrderInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="OutTickets">
+      <wsdl:input name="OutTickets" message="tns:OutTickets" />
+      <wsdl:output name="OutTicketsResponse" message="tns:OutTicketsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryRequireRefundOrder">
+      <wsdl:input name="QueryRequireRefundOrder" message="tns:QueryRequireRefundOrder" />
+      <wsdl:output name="QueryRequireRefundOrderResponse" message="tns:QueryRequireRefundOrderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyRefuseTicketState">
+      <wsdl:input name="ModifyRefuseTicketState" message="tns:ModifyRefuseTicketState" />
+      <wsdl:output name="ModifyRefuseTicketStateResponse" message="tns:ModifyRefuseTicketStateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RefuseRefundTicket">
+      <wsdl:input name="RefuseRefundTicket" message="tns:RefuseRefundTicket" />
+      <wsdl:output name="RefuseRefundTicketResponse" message="tns:RefuseRefundTicketResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SplitAccount">
+      <wsdl:input name="SplitAccount" message="tns:SplitAccount" />
+      <wsdl:output name="SplitAccountResponse" message="tns:SplitAccountResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyOutTicketState">
+      <wsdl:input name="ModifyOutTicketState" message="tns:ModifyOutTicketState" />
+      <wsdl:output name="ModifyOutTicketStateResponse" message="tns:ModifyOutTicketStateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryRefundHisOrderInfo">
+      <wsdl:input name="QueryRefundHisOrderInfo" message="tns:QueryRefundHisOrderInfo" />
+      <wsdl:output name="QueryRefundHisOrderInfoResponse" message="tns:QueryRefundHisOrderInfoResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IBEServiceSoapBinding" type="tns:IBEServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RefuseOutTicket">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="RefuseOutTicket">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RefuseOutTicketResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryRefundHisDetailInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="QueryRefundHisDetailInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="QueryRefundHisDetailInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefundTicket">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="RefundTicket">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RefundTicketResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryRequireOrder">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="QueryRequireOrder">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="QueryRequireOrderResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryOrderInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="QueryOrderInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="QueryOrderInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefundAccount">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="RefundAccount">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RefundAccountResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MalformedURLException">
+        <soap:fault use="literal" name="MalformedURLException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DocumentException">
+        <soap:fault use="literal" name="DocumentException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OutTickets">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="OutTickets">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="OutTicketsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryRequireRefundOrder">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="QueryRequireRefundOrder">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="QueryRequireRefundOrderResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyRefuseTicketState">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="ModifyRefuseTicketState">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ModifyRefuseTicketStateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefuseRefundTicket">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="RefuseRefundTicket">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RefuseRefundTicketResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SplitAccount">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="SplitAccount">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SplitAccountResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyOutTicketState">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="ModifyOutTicketState">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ModifyOutTicketStateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryRefundHisOrderInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="QueryRefundHisOrderInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="QueryRefundHisOrderInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IBEService">
+    <wsdl:port name="IBEServiceHttpPort" binding="tns:IBEServiceSoapBinding">
+      <soap:address location="http://wisedu.yeexing.net/GoldIntf/services/IBEService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

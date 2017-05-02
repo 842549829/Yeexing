@@ -21,38 +21,9 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-
-            string content = "total_amount=0.01&buyer_id=2088802210835072&trade_no=2017041421001004070205315092&body=%u80a5%u80a0%u7c89&notify_time=2017-04-14+16%3a03%3a57&subject=%u80a5%u80a0%u7c89&sign_type=RSA2&buyer_logon_id=hyy***%40qq.com&auth_app_id=2017041006623425&charset=utf-8&notify_type=trade_status_sync&invoice_amount=0.01&out_trade_no=170414160356021277&trade_status=TRADE_SUCCESS&gmt_payment=2017-04-14+16%3a03%3a57&version=1.0&point_amount=0.00&sign=qIUCtOT64SqvUVQ7ekdYkQuKQ6gwIIhjV10L87eGnkGalvkKt3nN6wG1PXgHMzmrEQPpM1VJ717RhgN50kPax8uXV81vWjwIeHmjS5L2jT%2f99StDEC61cOPcNrIfeaZST%2bkJXEbLIAhZGfaiyfj7mNPko4x9tbY0ctAVwjO5gYIRHYF1NA4LMB%2fkKoh7VMtoUwxpD53Byf2rzsGGXApmiQetuEwWHIpCYzw0Juf1hcmEPBl%2fpZi2%2fU4Vlkjd3XQKBET5QLCk%2bQg%2byD%2bENdlRYlTNu10G9v3vTM0HY8tfPHthAQIrHOzRJNlhhepCHghRj30dFJJ4hZZO6wQBPN2u0g%3d%3d&gmt_create=2017-04-14+16%3a03%3a56&buyer_pay_amount=0.01&receipt_amount=0.01&fund_bill_list=%5b%7b%22amount%22%3a%220.01%22%2c%22fundChannel%22%3a%22ALIPAYACCOUNT%22%7d%5d&app_id=2017041006623425&seller_id=2088111473711680&notify_id=71dfbab0fdd56f11b1297df241e0f47gji&seller_email=sclxgl01%40163.com";
-
-            HttpHelper http = new HttpHelper();
-            string rel = http.HttpPost("http://localhost:38599/AliPayNotice/PaySdkNotice", string.Empty,
-                content, Encoding.UTF8, false, false, 5000);
-
-            //string str = "total_amount=0.01&buyer_id=2088802210835072&trade_no=2017041421001004070205336835&body=%u80a5%u80a0%u7c89&notify_time=2017-04-14+16%3a06%3a28&subject=%u80a5%u80a0%u7c89&sign_type=RSA2&buyer_logon_id=hyy***%40qq.com&auth_app_id=2017041006623425&charset=utf-8&notify_type=trade_status_sync&invoice_amount=0.01&out_trade_no=170414160628022504&trade_status=TRADE_SUCCESS&gmt_payment=2017-04-14+16%3a06%3a27&version=1.0&point_amount=0.00&sign=U4%2b%2ftid4zwKKzmVh5jgsQ30Pv0XLCRpRXPn4%2f77rDXg1oMQaXfzd%2f2gOY5QmSYyX2xv7cMPBk4586aJWqOzVIr286lq7SJWE6tq0Xs%2fGeFQr3jsTLb6eWpOdWhkn52jmkLkBhcK88Wxjh50QlhRKCeuQNX0MK3qyGd0d9W1t5V6bO7KrezFNOrkJXyf57HF%2f66fYzErt3Rd4f3jgOwehGINDSDv0dkGyy%2bMhG%2fVI1OH7Ut7QisAj9z0UOSYnX0bjDtnLH2MWbX%2bT2MQqkdvGHxkzIujyz7uNmIYs17kjDy6NZG0FFpX1i58KtX7SZ2mYN%2bhp7Pu%2f7WulD5sVbITDug%3d%3d&gmt_create=2017-04-14+16%3a06%3a27&buyer_pay_amount=0.01&receipt_amount=0.01&fund_bill_list=%5b%7b%22amount%22%3a%220.01%22%2c%22fundChannel%22%3a%22ALIPAYACCOUNT%22%7d%5d&app_id=2017041006623425&seller_id=2088111473711680&notify_id=bee6a29763484e9bba6b0859c377516gji&seller_email=sclxgl01%40163.com";
-            ////var rrr = Post("http://139.129.208.174:3125/Detr/DetrTn", str);
-
-            //var rrr = Post("http://localhost:38598/AliPayNotice/PaySdkNotice", str);
-            //var ress = rrr.Result;
-            string str1 = "";
-
-            //Test();
-
-            //            HttpHelper http = new HttpHelper();
-            //            string str = @"Ci803WFh+LhR92uQcm9wfBFNmpBzNvsRrox3C70MMlkpHwCfMAFIBaQBO42tmqeUd1f5dRHGphHT
-            //8HQ1V/h5JyLIAlBV2RY94xmltKxuD6FPhmv2pG6bZ81YmkYDwRjGKNrposipJ8meJybOqajgdjyU
-            //LaEA5SrpxlQDJkCCzL3rhL4jxj/QGmWgP5a7je+oz0yFPYNiCQi585ZkYL2jPpkN/3np7xeWCAv+
-            //2CKoUK/xK85tGz8ttDlOmRNe5rM77orvRS9iwNIwcfc8khTRQG7vpD+p1HzuXlS2K1j4LPb53Fib
-            //U1xQuNELxicOVmuorvpt0yr1MOPdAD3fET13wqHmITgldjD4x0Khz0JpKzLXz8Zrcm8/Q2d+QLJP
-            //w+8thYi8q4xavj4B4GIhFGF8H5Mf/mQpYIALkxV9rPELAf4F5Na2R2hf+1fI1JU/NdSkVNR2tjK4
-            //7qEZ9wWV3VUXgkDhkinCmqJHLnVlMRPo7zemU2HFqZJdQFmr2fozKVUcxTT/DwsJoJrrDaeeZo0Z
-            //EOxqpqE/WWSYcdcuEmpIM+DQrgnu1519s3B0nBuEiN0cij9bVSIvx8hW9e0jUOAZiO/UJth3FZGF
-            //xPovBDQZwJsGlg3Jrb53Y3PkSDpsWZJJGipZnQrF0YHIDBpYpESA2C54//h2Rv/n3jhA6QXNASqs
-            //I9NqbaBrhKYxGI0wHNbt";
-
-            //            var da = GZipDecompress(str);
-            //            var rel = http.HttpPost("http://ume1.umetrip.com/MSky_Front/api/msky/p3/searchflybyarea?encrypt=1", string.Empty, "", Encoding.UTF8, false, false, 6000);
-            Console.WriteLine();
-            Console.ReadLine();
+            //string content = "total_amount=0.01&buyer_id=2088802210835072&trade_no=2017041421001004070205315092&body=%u80a5%u80a0%u7c89&notify_time=2017-04-14+16%3a03%3a57&subject=%u80a5%u80a0%u7c89&sign_type=RSA2&buyer_logon_id=hyy***%40qq.com&auth_app_id=2017041006623425&charset=utf-8&notify_type=trade_status_sync&invoice_amount=0.01&out_trade_no=170414160356021277&trade_status=TRADE_SUCCESS&gmt_payment=2017-04-14+16%3a03%3a57&version=1.0&point_amount=0.00&sign=qIUCtOT64SqvUVQ7ekdYkQuKQ6gwIIhjV10L87eGnkGalvkKt3nN6wG1PXgHMzmrEQPpM1VJ717RhgN50kPax8uXV81vWjwIeHmjS5L2jT%2f99StDEC61cOPcNrIfeaZST%2bkJXEbLIAhZGfaiyfj7mNPko4x9tbY0ctAVwjO5gYIRHYF1NA4LMB%2fkKoh7VMtoUwxpD53Byf2rzsGGXApmiQetuEwWHIpCYzw0Juf1hcmEPBl%2fpZi2%2fU4Vlkjd3XQKBET5QLCk%2bQg%2byD%2bENdlRYlTNu10G9v3vTM0HY8tfPHthAQIrHOzRJNlhhepCHghRj30dFJJ4hZZO6wQBPN2u0g%3d%3d&gmt_create=2017-04-14+16%3a03%3a56&buyer_pay_amount=0.01&receipt_amount=0.01&fund_bill_list=%5b%7b%22amount%22%3a%220.01%22%2c%22fundChannel%22%3a%22ALIPAYACCOUNT%22%7d%5d&app_id=2017041006623425&seller_id=2088111473711680&notify_id=71dfbab0fdd56f11b1297df241e0f47gji&seller_email=sclxgl01%40163.com";
+            //HttpHelper http = new HttpHelper();
+            //string rel = http.HttpPost("http://localhost:38599/AliPayNotice/PaySdkNotice", string.Empty, content, Encoding.UTF8, false, false, 5000);
 
             //ServiceReference1.RefuseOrderForVenderService_1_0Client cc = new ServiceReference1.RefuseOrderForVenderService_1_0Client();
             //var r = cc.refuseOrderForVender(new ServiceReference1.refuseOrderForVenderRequest
@@ -67,6 +38,9 @@ namespace ConsoleApplication1
             //SendTest();
             // var html = File.ReadAllText(@"C:\Users\rongbo.720U\Desktop\text.txt");
             //string str = GetTitleContent(html, "p", "my-p ft-cl3 text-elli3");
+
+            Console.WriteLine();
+            Console.ReadLine();
         }
 
 
@@ -349,7 +323,7 @@ namespace ConsoleApplication1
             string rel = http.HttpPost("http://localhost:3525/PrepareDeposit/AliPay/NewAliRechargeNotify.aspx", string.Empty,
                 content, Encoding.UTF8, false, false, 5000);
 
-           
+
         }
 
         private static async Task<string> Post(string url, string data)

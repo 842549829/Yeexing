@@ -1,0 +1,12 @@
+﻿{
+  "defaultAssembly": "Bms.Repository",
+  "components": [
+    {
+      "type": "Bms.Repository.AdminRepository,Bms.Repository",
+      "services": [
+        { "type": "Bms.Domain.Interface.IadminRepository,Bms.Domain" }
+      ],
+      "injectProperties": true
+    }
+  ]
+}

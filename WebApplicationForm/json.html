@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    var jsonData = function () {
+        this.jsData = [{ "Type": "A", "ITEM": "A1" }, { "Type": "A", "ITEM": "A2" }, { "Type": "B", "ITEM": "B1" }, { "Type": "B", "ITEM": "B2" }]
+        this.keys = [];
+        this.dic = [];
+    };
+    jsonData.prototype.containsKey = function containsKey(key, dic) {
+        for (var i = 0; i < dic.length; i++) {
+            var item = dic[i];
+            if (key === item) {
+                return true;
+            }
+        }
+        return false;
+    }
+    jsonData.prototype.getValue = function () {
+        for (var i = 0; i < this.jsData.length; i++) {
+            var item = this.jsData[i];
+            if (!this.containsKey(item.Type, this.keys)) {
+                this.keys.push(item.Type);
+                var key = item.Type.toString();
+                var data = {};
+                data[key] = [];
+                for (var j = 0; j < this.jsData.length; j++) {
+                    var dataItem = this.jsData[j];
+                    if (item.Type === dataItem.Type) {
+                        data[key].push(dataItem);
+                    }
+                }
+                this.dic.push(data);
+            }
+        }
+    }
+    window.onload = function () {
+        var jsdata = new jsonData();
+        jsdata.getValue();
+        var result = JSON.stringify(jsdata.dic);
+    }
+</script>

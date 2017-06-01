@@ -355,5 +355,13 @@ namespace ConsoleApplication1
                 return rel;
             }
         }
+
+        public void Test1()
+        {
+            TaskFactory taskFactory = new TaskFactory();
+            //CancellationTokenSource
+
+        } 
+
     }
 }

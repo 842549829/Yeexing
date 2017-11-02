@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>jsapi</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <input type="button" value="吊起微信支付" onclick="tenpayHandler()" style="width: 400px; height: 400px;"/>
+</body>
+</html>
+<script>
+    // 微信支付
+    var dataJson;
+    function tenpayHandler() {
+        dataJson = { Appid: "wx638ac6606abbbe93", Timestamp: "1501148091", NonceStr: "653CC6E1B2A37253F7A6055E0F0F6E32", Package: "prepay_id=wx201707271738598c3d267af30071134905", Sign: "DA9EB8ADB2AB597BDCABF06793A576AA", SignType: "MD5" };
+        if (typeof window.WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener("WeixinJSBridgeReady", onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        } else {
+            onBridgeReady();
+        }
+    }
+
+    // 微信唤醒
+    function onBridgeReady() {
+        window.WeixinJSBridge.invoke(
+            "getBrandWCPayRequest", {
+                "appId": dataJson.Appid,     //公众号名称，由商户传入     
+                "timeStamp": dataJson.Timestamp,         //时间戳，自1970年以来的秒数     
+                "nonceStr": dataJson.NonceStr, //随机串     
+                "package": dataJson.Package,
+                "signType": dataJson.SignType,         //微信签名方式：     
+                "paySign": dataJson.Sign //微信签名 
+            },
+            function (res) {
+                // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+                if (res.err_msg === "get_brand_wcpay_request:ok") {
+                    // 返回成功页面
+                    alert("支付成功");
+                }
+                else if (res.err_msg === "get_brand_wcpay_request:cancel") { // 支付取消
+                    alert("支付取消");
+                }
+                else { //get_brand_wcpay_request:fail	 支付失败
+                    // 其他统一处理为失败
+                    alert(JSON.stringify(res));
+                }
+            }
+        );
+    }
+</script>

@@ -11,8 +11,12 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using DotNetSpeech;
+using Newtonsoft.Json;
+using Notify.Code.Utility;
 using Qunau.AirportData.Common;
 using Qunau.NetFrameWork.Common.Code;
+using Qunau.NetFrameWork.Common.Extension;
 using HttpHelper = Qunau.AirportData.Common.HttpHelper;
 
 namespace ConsoleApplication1
@@ -21,6 +25,8 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+            //Reading();
+
             //string content = "total_amount=0.01&buyer_id=2088802210835072&trade_no=2017041421001004070205315092&body=%u80a5%u80a0%u7c89&notify_time=2017-04-14+16%3a03%3a57&subject=%u80a5%u80a0%u7c89&sign_type=RSA2&buyer_logon_id=hyy***%40qq.com&auth_app_id=2017041006623425&charset=utf-8&notify_type=trade_status_sync&invoice_amount=0.01&out_trade_no=170414160356021277&trade_status=TRADE_SUCCESS&gmt_payment=2017-04-14+16%3a03%3a57&version=1.0&point_amount=0.00&sign=qIUCtOT64SqvUVQ7ekdYkQuKQ6gwIIhjV10L87eGnkGalvkKt3nN6wG1PXgHMzmrEQPpM1VJ717RhgN50kPax8uXV81vWjwIeHmjS5L2jT%2f99StDEC61cOPcNrIfeaZST%2bkJXEbLIAhZGfaiyfj7mNPko4x9tbY0ctAVwjO5gYIRHYF1NA4LMB%2fkKoh7VMtoUwxpD53Byf2rzsGGXApmiQetuEwWHIpCYzw0Juf1hcmEPBl%2fpZi2%2fU4Vlkjd3XQKBET5QLCk%2bQg%2byD%2bENdlRYlTNu10G9v3vTM0HY8tfPHthAQIrHOzRJNlhhepCHghRj30dFJJ4hZZO6wQBPN2u0g%3d%3d&gmt_create=2017-04-14+16%3a03%3a56&buyer_pay_amount=0.01&receipt_amount=0.01&fund_bill_list=%5b%7b%22amount%22%3a%220.01%22%2c%22fundChannel%22%3a%22ALIPAYACCOUNT%22%7d%5d&app_id=2017041006623425&seller_id=2088111473711680&notify_id=71dfbab0fdd56f11b1297df241e0f47gji&seller_email=sclxgl01%40163.com";
             //HttpHelper http = new HttpHelper();
             //string rel = http.HttpPost("http://localhost:38599/AliPayNotice/PaySdkNotice", string.Empty, content, Encoding.UTF8, false, false, 5000);
@@ -38,11 +44,42 @@ namespace ConsoleApplication1
             //SendTest();
             // var html = File.ReadAllText(@"C:\Users\rongbo.720U\Desktop\text.txt");
             //string str = GetTitleContent(html, "p", "my-p ft-cl3 text-elli3");
+            //var data = Encrypt(new
+            //{
+            //    MerchantId = 12,
+            //    OrderId = "225545514444",
+            //    TradeAmount = 14,
+            //    TradeTime = DateTime.Now
+            //}.SerializeObject(), "dzxz!@#$");
+            //var request = "{\"Request\":\"" + data + "\"}";
+            //HttpHelper http = new HttpHelper()
+            //{
+            //    ContentType = "application/json"
+            //};
+            //string rel = http.HttpPost("http://pcnotify.dongzouxizou.com//UserManage/AddLifeOrder", string.Empty, request, Encoding.UTF8, false, false, 5000);
+
+            //string request = "sign=c2bff1ae8a7681c457e3d3d7d0143ab7&result_details=2017091221001004320272402384%5e0.01%5eSUCCESS%5efalse%5enull%24sclxgl02%40163.com%5e2088111464709193%5e0.00%5eSUCCESS&notify_time=2017-09-12+14%3a14%3a03&sign_type=MD5&notify_type=batch_refund_notify&notify_id=aa1ad3a6a3df6fdf8dca50ed9645a42jh2&batch_no=20170912XA057452&success_num=1";
+            //HttpHelper http = new HttpHelper();
+            //string rel = http.HttpPost("http://localhost:38599/AliPayNotice/RefundPayNotify", string.Empty, request, Encoding.UTF8, false, false, 5000);
+
+            // y
+            //var y = HttpClientUtility.PostModel<Request, dynamic>("http://192.168.10.16:8085/activity-platform-web/bd/product/view", new Request { id = "8fa8d06b2bd04566874ebc0eff796766" });
+
+            // 16
+            var d = HttpClientUtility.PostFormUrl<object, dynamic>("http://192.168.10.16:8085/activity-platform-web/bd/product/view", new { id = "8fa8d06b2bd04566874ebc0eff796766", daz = 09, ddaz = 0.25M });
+
+            // 20.5:8080
+            var d1 = HttpClientUtility.PostFormUrl<object, dynamic>("http://192.168.20.5:8080/activity-platform-web/bd/product/view", new { id = "8fa8d06b2bd04566874ebc0eff796766" });
 
             Console.WriteLine();
             Console.ReadLine();
         }
 
+        public class Request
+        {
+            public string id { get; set; }
+
+        }
 
         public static void Proxy()
         {
@@ -338,7 +375,8 @@ namespace ConsoleApplication1
             {
                 ////设置要的数据格式
                 ////http.DefaultRequestHeaders.Add("Accept", "application/xml");
-                //http.DefaultRequestHeaders.Add("Accept", "application/json");
+                http.DefaultRequestHeaders.Add("Accept", "application/json");
+                //http.DefaultRequestHeaders.Add("Accp", "application/x-www-form-urlencoded");
 
                 // 使用FormUrlEncodedContent做HttpContent
                 var content = new ByteArrayContent(Encoding.UTF8.GetBytes(data));
@@ -361,7 +399,51 @@ namespace ConsoleApplication1
             TaskFactory taskFactory = new TaskFactory();
             //CancellationTokenSource
 
-        } 
 
+
+        }
+
+
+        public static void Reading()
+        {
+            Console.WriteLine("请输入需要阅读的内容:" + Environment.NewLine);
+            var readLine = Console.ReadLine();
+            if (readLine != null)
+            {
+                var inputString = readLine.ToLower();
+                SpVoice voice = new SpVoice();
+                voice.Speak(inputString);
+            }
+        }
+
+        /// <summary>
+        /// DES加密方法
+        /// </summary>
+        /// <param name="source">原文</param>
+        /// <param name="key">key</param>
+        /// <returns>密文</returns>
+        public static string Encrypt(string source, string key)
+        {
+            using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
+            {
+                byte[] keys = Encoding.ASCII.GetBytes(key);
+                byte[] ivs = Encoding.ASCII.GetBytes(key);
+                byte[] dataByteArray = Encoding.UTF8.GetBytes(source);
+                des.Mode = CipherMode.CBC;
+                des.Key = keys;
+                des.IV = ivs;
+                string encrypt;
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, des.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(dataByteArray, 0, dataByteArray.Length);
+                        cs.FlushFinalBlock();
+                        encrypt = Convert.ToBase64String(ms.ToArray());
+                    }
+                }
+                return encrypt;
+            }
+        }
     }
 }

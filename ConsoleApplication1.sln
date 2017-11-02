@@ -1,12 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{4F624B43-208B-4230-855C-86BA4176BA7A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "WebApplication\WebApplication.csproj", "{EBE1C8D1-A1E7-4262-9DD1-3814C6EE8F6C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 AutoFac", "01 AutoFac", "{0909ABE6-E829-431A-96E6-AE1814C79CAB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bms.Web", "Bsm.Web\Bms.Web.csproj", "{84A30EB8-57D2-4D0B-B06C-1A597A89393D}"
@@ -25,14 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4F624B43-208B-4230-855C-86BA4176BA7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F624B43-208B-4230-855C-86BA4176BA7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F624B43-208B-4230-855C-86BA4176BA7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F624B43-208B-4230-855C-86BA4176BA7A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EBE1C8D1-A1E7-4262-9DD1-3814C6EE8F6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EBE1C8D1-A1E7-4262-9DD1-3814C6EE8F6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EBE1C8D1-A1E7-4262-9DD1-3814C6EE8F6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EBE1C8D1-A1E7-4262-9DD1-3814C6EE8F6C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{84A30EB8-57D2-4D0B-B06C-1A597A89393D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{84A30EB8-57D2-4D0B-B06C-1A597A89393D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84A30EB8-57D2-4D0B-B06C-1A597A89393D}.Release|Any CPU.ActiveCfg = Release|Any CPU
